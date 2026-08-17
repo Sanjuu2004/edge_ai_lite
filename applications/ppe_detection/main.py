@@ -9,7 +9,7 @@ Run:
 """
 import os
 from framework.common.app_factory import create_app
-from solutions.ppe_industrial.logic import PPEIndustrialSolution
+from applications.ppe_detection.logic import PPEIndustrialSolution
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
