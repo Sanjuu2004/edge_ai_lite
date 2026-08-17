@@ -4,7 +4,7 @@ Run:
     uvicorn apps.healthcare.main:app --host 0.0.0.0 --port 8005 --reload
 """
 import os
-from platform_core.app_factory import create_app
+from framework.common.app_factory import create_app
 from solutions.healthcare_monitoring.logic import HealthcareMonitoringSolution
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

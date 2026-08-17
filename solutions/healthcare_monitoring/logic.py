@@ -31,7 +31,7 @@ generic per-slot, nothing camera-specific needed here.
 import json
 import os
 
-from solutions.base_solution import BaseSolution
+from framework.common.base_solution import BaseSolution
 
 RULES_PATH = os.path.join(os.path.dirname(__file__), "rules.json")
 

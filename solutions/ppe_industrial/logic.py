@@ -18,7 +18,7 @@ smoothed per-person status.
 
 from collections import defaultdict, deque
 
-from solutions.base_solution import BaseSolution
+from framework.common.base_solution import BaseSolution
 
 
 # ── PPEAssociator — moved unchanged from pipeline/ppe_logic.py ──────────

@@ -25,7 +25,7 @@ import json
 import os
 from collections import deque
 
-from solutions.base_solution import BaseSolution
+from framework.common.base_solution import BaseSolution
 
 RULES_PATH = os.path.join(os.path.dirname(__file__), "rules.json")
 

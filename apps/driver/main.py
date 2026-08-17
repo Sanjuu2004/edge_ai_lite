@@ -4,7 +4,7 @@ Run:
     uvicorn apps.driver.main:app --host 0.0.0.0 --port 8004 --reload
 """
 import os
-from platform_core.app_factory import create_app
+from framework.common.app_factory import create_app
 from solutions.driver_monitoring.logic import DriverMonitoringSolution
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
