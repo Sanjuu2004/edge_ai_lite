@@ -5,7 +5,7 @@ Run:
 """
 import os
 from framework.common.app_factory import create_app
-from solutions.healthcare_monitoring.logic import HealthcareMonitoringSolution
+from applications.healthcare.logic import HealthcareMonitoringSolution
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
