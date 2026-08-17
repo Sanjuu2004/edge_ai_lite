@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+myenv/
+**/runtime_data/data/
+**/runtime_data/screenshots/
+**/runtime_data/temp/
+**/runtime_data/outputs/
+**/runtime_data/uploads/

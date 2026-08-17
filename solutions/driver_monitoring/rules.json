@@ -1,0 +1,28 @@
+{
+  "class_names": ["Open Eye", "Closed Eye", "Cigarette", "Phone", "Seatbelt"],
+
+  "perclos": {
+    "_comment": "Percentage of eyes-CLOSED time over a rolling window is the standard drowsiness metric. window_frames assumes ~15fps (Lite tier target_fps) -> ~3s window. threshold=0.7 means drowsy confirmed once eyes were closed in 70%+ of observed frames in that window.",
+    "window_frames": 45,
+    "closed_ratio_threshold": 0.7,
+    "min_observed_frames": 20
+  },
+
+  "phone": {
+    "min_consecutive_frames": 15,
+    "clear_after_missing_frames": 5
+  },
+
+  "cigarette": {
+    "min_consecutive_frames": 15,
+    "clear_after_missing_frames": 5
+  },
+
+  "seatbelt": {
+    "_comment": "Inverted from PPE's vest logic: violation = Seatbelt NOT detected for this many consecutive frames.",
+    "absence_min_consecutive_frames": 45,
+    "clear_after_present_frames": 5
+  },
+
+  "cooldown_seconds": 20
+}

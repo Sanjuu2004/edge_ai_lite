@@ -1,0 +1,19 @@
+{
+  "class_names": ["person"],
+
+  "occupancy": {
+    "_comment": "Violation = more than max_occupancy tracked persons present for min_violation_frames consecutive frames. Tune max_occupancy per room type (e.g. 1 for a single-patient room, higher for a ward).",
+    "max_occupancy": 1,
+    "min_violation_frames": 30,
+    "clear_after_frames": 10
+  },
+
+  "fall_detection": {
+    "_comment": "STUB -- disabled until a pose-estimation model (e.g. YOLOv8-Pose) is available. Object-detection classes alone (just 'person') can't reliably distinguish standing from fallen; this needs keypoint geometry, not a bbox class. See solutions/healthcare_monitoring/logic.py's check_falls() for the intended plug-in point.",
+    "enabled": false,
+    "torso_angle_threshold_deg": 60,
+    "min_violation_frames": 10
+  },
+
+  "cooldown_seconds": 20
+}

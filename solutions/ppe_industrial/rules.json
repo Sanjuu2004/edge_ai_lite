@@ -1,0 +1,26 @@
+{
+  "solution": "ppe_industrial",
+  "classes": ["helmet", "person", "vest"],
+  "cooldown_seconds": 15,
+  "confirmation_frames": 40,
+  "violation_types": {
+    "no_helmet": {
+      "label": "No Helmet",
+      "severity": "warning",
+      "color": "#ba7517",
+      "icon": "⛑️"
+    },
+    "no_vest": {
+      "label": "No Vest",
+      "severity": "warning",
+      "color": "#7f77dd",
+      "icon": "🦺"
+    },
+    "no_helmet_no_vest": {
+      "label": "Both Missing",
+      "severity": "critical",
+      "color": "#e24b4a",
+      "icon": "🚫"
+    }
+  }
+}

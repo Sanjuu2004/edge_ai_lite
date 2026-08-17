@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<title>Edge AI Monitor</title>
+<link rel="stylesheet" href="/static/theme.css">
+<script>
+  (function() {
+    try {
+      var saved = localStorage.getItem("edge-ai-theme");
+      document.documentElement.setAttribute("data-theme", saved === "dark" ? "dark" : "light");
+    } catch (_) {}
+  })();
+</script>
+</head>
+<body>
+
+<div id="entry-page" style="min-height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;background:linear-gradient(160deg,var(--ivory) 0%,#FBF9F4 55%,var(--ivory-dark) 100%);overflow:hidden;position:relative;font-family:var(--f-body);">
+  <div style="position:absolute;inset:-48px 0 0 -48px;pointer-events:none;background-image:linear-gradient(rgba(184,134,44,0.08) 1px,transparent 1px),linear-gradient(90deg,rgba(184,134,44,0.08) 1px,transparent 1px);background-size:48px 48px;animation:gridDrift 14s linear infinite;opacity:0.6;"></div>
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:560px;height:560px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(184,134,44,0.14) 0%,transparent 70%);"></div>
+
+  <div id="entry-content" style="z-index:1;text-align:center;max-width:620px;padding:0 28px;opacity:0;">
+    <div style="margin-bottom:28px;display:flex;justify-content:center;">
+      <div class="radar-sweep-wrap">
+        <div id="entry-icon" style="width:72px;height:72px;border-radius:20px;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:34px;box-shadow:0 8px 32px var(--gold-glow);"></div>
+      </div>
+    </div>
+    <div style="display:inline-flex;align-items:center;gap:7px;padding:5px 14px;border-radius:20px;border:1px solid var(--gold-border);background:var(--gold-pale);font-size:10px;font-weight:600;letter-spacing:2.5px;color:var(--gold);margin-bottom:20px;font-family:var(--f-mono);text-transform:uppercase;">
+      <div style="width:5px;height:5px;border-radius:50%;background:var(--gold);animation:subtlePulse 2s infinite;"></div>
+      <span id="entry-tag-text"></span>
+    </div>
+    <h1 style="font-family:var(--f-heading);font-size:56px;font-weight:400;line-height:1.1;margin:0 0 14px;letter-spacing:-0.5px;color:var(--navy);">
+      <span id="entry-title" class="shimmer-text"></span>
+    </h1>
+    <p style="font-family:var(--f-mono);font-size:14px;color:var(--text-second);margin:0 0 40px;letter-spacing:0.5px;min-height:22px;">
+      <span id="typed-text"></span><span style="animation:blink 1s infinite;color:var(--gold);">|</span>
+    </p>
+    <div id="entry-features" style="display:flex;gap:8px;justify-content:center;margin-bottom:40px;flex-wrap:wrap;"></div>
+
+    <button id="launch-btn" class="entry-btn" style="padding:14px 52px;border-radius:50px;border:none;background:var(--gold);color:#fff;font-size:14px;font-weight:600;cursor:pointer;letter-spacing:1.5px;text-transform:uppercase;transition:all 0.2s;box-shadow:0 4px 20px var(--gold-glow);">
+      Launch System
+    </button>
+
+    <div id="entry-footer-tags" style="margin-top:24px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap;"></div>
+  </div>
+</div>
+
+<div id="main-app" style="display:none;min-height:100vh;display:none;">
+
+  <div style="position:fixed;left:0;top:0;bottom:0;width:228px;background:var(--sidebar-bg);border-right:1px solid rgba(255,255,255,0.06);display:flex;flex-direction:column;z-index:100;">
+    <div style="padding:24px 20px 20px;border-bottom:1px solid rgba(255,255,255,0.06);">
+      <div style="font-family:var(--f-heading);font-size:19px;color:#EDEFF5;display:flex;align-items:center;gap:9px;margin-bottom:5px;">
+        <div id="sidebar-icon" style="width:28px;height:28px;border-radius:7px;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;"></div>
+        <span id="sidebar-brand-text"></span>
+      </div>
+      <div style="font-family:var(--f-mono);font-size:9px;color:rgba(255,255,255,0.22);letter-spacing:2px;text-transform:uppercase;">Jetson Orin Platform</div>
+    </div>
+
+    <nav id="nav-list" style="flex:1;padding:14px 10px;display:flex;flex-direction:column;gap:2px;">
+      <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.2);padding:6px 10px 4px;font-family:var(--f-mono);">Navigation</div>
+    </nav>
+
+    <div style="padding:14px 20px;border-top:1px solid rgba(255,255,255,0.06);">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;">
+        <div style="width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 2px rgba(74,222,128,0.2);"></div>
+        <span style="font-size:12px;color:rgba(255,255,255,0.65);font-weight:500;">System Online</span>
+      </div>
+      <div style="font-family:var(--f-mono);font-size:9px;color:rgba(255,255,255,0.2);line-height:1.9;" id="sidebar-clock"></div>
+    </div>
+  </div>
+
+  <div style="margin-left:228px;flex:1;display:flex;flex-direction:column;min-height:100vh;">
+    <div style="padding:16px 28px;border-bottom:1px solid var(--ivory-border);display:flex;justify-content:space-between;align-items:center;background:var(--surface-bg);position:sticky;top:0;z-index:50;">
+      <div>
+        <h1 id="page-title" style="font-family:var(--f-heading);font-size:21px;font-weight:400;color:var(--text-primary);margin:0;"></h1>
+        <div id="page-date" style="font-family:var(--f-mono);font-size:10px;color:var(--text-muted);margin-top:3px;letter-spacing:0.5px;"></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="padding:5px 14px;border-radius:20px;border:1px solid var(--success-border);background:var(--success-bg);font-size:11px;font-weight:600;color:var(--success);display:flex;align-items:center;gap:6px;font-family:var(--f-mono);letter-spacing:1px;">
+          <div style="width:5px;height:5px;border-radius:50%;background:var(--success);animation:subtlePulse 1.8s infinite;"></div>
+          LIVE
+        </div>
+        <div id="header-model-badge" style="padding:5px 14px;border-radius:20px;border:1px solid var(--gold-border);background:var(--gold-pale);font-size:11px;color:var(--gold);font-family:var(--f-mono);letter-spacing:0.5px;"></div>
+        <button id="theme-toggle-btn" class="theme-toggle-btn" title="Toggle theme" aria-label="Toggle light/dark theme">🌙</button>
+      </div>
+    </div>
+
+    <div id="page-content" style="padding:28px;flex:1;animation:fadeIn 0.25s ease;"></div>
+  </div>
+</div>
+
+<script src="/static/js/theme.js"></script>
+<script src="/static/js/live.js"></script>
+<script src="/static/js/upload.js"></script>
+<script src="/static/js/dashboard.js"></script>
+<script src="/static/js/health.js"></script>
+<script src="/static/js/violations.js"></script>
+<script src="/static/js/app.js"></script>
+</body>
+</html>
