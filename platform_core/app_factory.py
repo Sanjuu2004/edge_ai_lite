@@ -27,7 +27,7 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 from framework.inference.backends.onnx_backend.inference import ONNXInference
-from platform_core.data_manager import DataManager
+from framework.database.data_manager import DataManager
 from framework.alerts.alert_engine import AlertEngine
 from framework.camera.stream_manager import StreamManager
 from framework.camera.camera_manager import CameraManager
