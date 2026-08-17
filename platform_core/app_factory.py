@@ -31,7 +31,7 @@ from framework.database.data_manager import DataManager
 from framework.alerts.alert_engine import AlertEngine
 from framework.camera.stream_manager import StreamManager
 from framework.camera.camera_manager import CameraManager
-from platform_core.device_health_monitor import DeviceHealthMonitor
+from framework.device.device_health_monitor import DeviceHealthMonitor
 from platform_core.video_upload_processor import VideoUploadProcessor
 from framework.mqtt.mqtt_publisher import MQTTPublisher
 from framework.alerts.speaker_alert import SpeakerAlert
