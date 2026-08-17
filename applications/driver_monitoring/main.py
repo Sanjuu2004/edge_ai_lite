@@ -5,7 +5,7 @@ Run:
 """
 import os
 from framework.common.app_factory import create_app
-from solutions.driver_monitoring.logic import DriverMonitoringSolution
+from applications.driver_monitoring.logic import DriverMonitoringSolution
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
