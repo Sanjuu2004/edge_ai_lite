@@ -15,7 +15,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 
 app = create_app(
     solution_class=PPEIndustrialSolution,
-    model_dir=os.path.join(BASE_DIR, "solutions", "ppe_industrial", "models"),
+    model_dir=os.path.join(BASE_DIR, "assets", "models", "ppe_detection"),
     frontend_dir=os.path.join(BASE_DIR, "framework", "dashboard"),
     data_root=os.path.join(os.path.dirname(os.path.abspath(__file__)), "runtime_data"),
     app_title="PPE Industrial Safety",
