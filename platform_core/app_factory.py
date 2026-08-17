@@ -29,8 +29,8 @@ from pydantic import BaseModel
 from framework.inference.backends.onnx_backend.inference import ONNXInference
 from platform_core.data_manager import DataManager
 from platform_core.alert_engine import AlertEngine
-from platform_core.stream_manager import StreamManager
-from platform_core.camera_manager import CameraManager
+from framework.camera.stream_manager import StreamManager
+from framework.camera.camera_manager import CameraManager
 from platform_core.device_health_monitor import DeviceHealthMonitor
 from platform_core.video_upload_processor import VideoUploadProcessor
 from alerts.mqtt_publisher import MQTTPublisher
