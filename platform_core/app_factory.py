@@ -28,14 +28,14 @@ from pydantic import BaseModel
 
 from framework.inference.backends.onnx_backend.inference import ONNXInference
 from platform_core.data_manager import DataManager
-from platform_core.alert_engine import AlertEngine
+from framework.alerts.alert_engine import AlertEngine
 from framework.camera.stream_manager import StreamManager
 from framework.camera.camera_manager import CameraManager
 from platform_core.device_health_monitor import DeviceHealthMonitor
 from platform_core.video_upload_processor import VideoUploadProcessor
-from alerts.mqtt_publisher import MQTTPublisher
-from alerts.speaker_alert import SpeakerAlert
-from alerts.violation_gallery import ViolationGallery
+from framework.mqtt.mqtt_publisher import MQTTPublisher
+from framework.alerts.speaker_alert import SpeakerAlert
+from framework.alerts.violation_gallery import ViolationGallery
 
 MAX_SLOTS = 2
 UPLOAD_RETENTION_SECONDS = 2 * 24 * 60 * 60
