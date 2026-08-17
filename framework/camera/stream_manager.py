@@ -23,7 +23,7 @@ import cv2
 import numpy as np
 
 from framework.camera.capture import CaptureThread
-from platform_core.object_tracker import ByteTracker
+from framework.tracking.object_tracker import ByteTracker
 from platform_core.event_manager import EventManager
 from framework.inference.annotation import draw_annotations as _shared_draw_annotations
 
