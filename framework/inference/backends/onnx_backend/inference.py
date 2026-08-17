@@ -22,7 +22,7 @@ import numpy as np
 import cv2
 import onnxruntime as ort
 
-from core.nms import class_nms
+from framework.inference.nms import class_nms
 
 
 class ONNXInference:

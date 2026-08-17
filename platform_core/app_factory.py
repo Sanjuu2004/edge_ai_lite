@@ -26,7 +26,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
-from backends.onnx_backend.inference import ONNXInference
+from framework.inference.backends.onnx_backend.inference import ONNXInference
 from platform_core.data_manager import DataManager
 from platform_core.alert_engine import AlertEngine
 from platform_core.stream_manager import StreamManager
@@ -54,7 +54,7 @@ def _build_inference_backend(model_dir, class_conf=None):
 
     if os.path.isfile(engine_path):
         try:
-            from backends.tensorrt_backend.inference import TensorRTInference
+            from framework.inference.backends.tensorrt_backend.inference import TensorRTInference
             backend = TensorRTInference(engine_path=engine_path, conf=0.5, class_conf=class_conf)
             print(f"[app_factory] Using TensorRT backend (GPU) for {model_dir}")
             return backend

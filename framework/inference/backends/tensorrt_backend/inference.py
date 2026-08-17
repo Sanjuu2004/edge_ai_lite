@@ -28,7 +28,7 @@ import cv2
 import tensorrt as trt
 from cuda import cudart
 
-from core.nms import class_nms
+from framework.inference.nms import class_nms
 
 
 def _cuda_check(err):
